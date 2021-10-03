@@ -1,8 +1,10 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{%static 'blog/style.css' %}">
+{% extends 'blog/base.html' %}
 
-<body>
-{#   include "parts/header.html" #}
-
-<h1>yo</h1>
-</body>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </main>
