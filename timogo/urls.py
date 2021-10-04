@@ -21,6 +21,8 @@ from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.post_list_index, name ='post_list_index')
+    path('', views.post_list_index, name ='post_list_index'),
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+
 ]
 urlpatterns += staticfiles_urlpatterns()

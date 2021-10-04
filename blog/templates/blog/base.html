@@ -1,16 +1,22 @@
-<body>
-    <header class="page-header">
-      <div class="container">
-          <h1><a href="/">Django Timogo Blog</a></h1>
-      </div>
-    </header>
-    <main class="container">
-        <div class="row">
-            <div class="col">
-            {% block content %}
+{% load static %}
+    <head>
+        <title>Timogo's blog</title>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %} ">
+    </head>
 
-             {% endblock %}
-            </div>
-        </div>
-    </main>
+
+<body>
+        <header>
+            <h1><a class="go_home" href="/">Blog timogo</a></h1>
+            <nav>
+                <ul>
+                    <li><a>header link</a></li>
+                    <li><a>header link</a></li>
+                    <li><a>header link</a></li>
+                </ul>
+            </nav>
+        </header>
+<main class="posts_list">
+            {% block content %}{% endblock %}
+</main>
 </body>

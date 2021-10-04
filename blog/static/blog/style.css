@@ -17,9 +17,7 @@ a{
     transition: color 1s;
     text-decoration: none;
 }
-a:hover{
-    color: var(--link-color-hover);
-}
+
 
 body{
     background: var(--web-wash-color);
@@ -60,9 +58,12 @@ section.list_articles article{
     transition: 1s;
 }
 section.list_articles article:hover{
-    background: var(--link-color-hover);
-    color: #000;
+    background: var(--secondary);
+    color: var(--link-color-hover);
 
+}
+article:hover a {
+    color: orange !important;
 }
 section.list_articles  div.title_and_date {
     display: flex;
