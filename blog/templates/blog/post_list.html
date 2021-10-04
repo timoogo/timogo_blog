@@ -13,7 +13,11 @@
             <h2>{{ post.title }}</h2>
             <time> {{ post.published_date }}</time>
         </div>
-        <p>{{ post.text|linebreaksbr }}</p>
+        {% if post.text|length > 200 %}
+        <p>{{ post.text|slice:":200"|linebreaksbr }}...</p><span class="see_more"> Lire la suite</span>
+            {% else %}
+           <p> {{ post.text }} </p>
+        {% endif %}
     </a>
 
     </article>

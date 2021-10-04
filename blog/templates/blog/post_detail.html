@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
+    <section class="block-scroll">
     <article class="post">
         {% if post.published_date %}
             <time class="date">
@@ -10,5 +12,6 @@
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
-    <a href="{% url 'post_list_index' %}">Revenir à l'accueil </a>
+    <a href="{% url 'post_list_index' %}" class="go_home">Revenir à l'accueil </a>
+    </section>
 {% endblock %}
