@@ -5,11 +5,11 @@
     <section class="block-scroll">
     <article class="post">
         {% if post.published_date %}
-            <time class="date">
-                {{ post.published_date }}
-            </time>
+     <div class="title_and_date">
+            <h2>{{ post.title }}</h2>
+            <time> {{ post.published_date }}</time>
+        </div>
         {% endif %}
-        <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
     <a href="{% url 'post_list_index' %}" class="go_home">Revenir à l'accueil </a>

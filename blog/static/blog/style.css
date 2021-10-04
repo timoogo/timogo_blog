@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
 :root{
     --web-wash-color: #18191A;
     --secondary:  #3a3b3c;
     --text-color :	#e4e6eb;
     --link-color: #2768d2;
-    --link-color-hover: #7294c5
+    --link-color-hover: #7294c5;
+    font-family: 'Lato', sans-serif;
+    --transition-duration-el : 1s;
 }
 *{
     margin: 0;
@@ -14,7 +17,7 @@
 a{
     color: var(--link-color);
     cursor: pointer;
-    transition: color 1s;
+    transition: color var(--transition-duration-el);
     text-decoration: none;
 }
 
@@ -78,17 +81,20 @@ section.list_articles article{
     margin: 5px;
     background: var(--secondary);
     border-radius: 12px;
-    transition: 1s;
-  height: max-content;
+    transition: var(--transition-duration-el);
+     height: max-content;
 }
 span.see_more {
      color: var(--link-color) !important;
+    text-decoration: underline var(--link-color);
+    transition: var(--transition-duration-el);
 }
 span.see_more:hover{
     color: var(--link-color-hover) !important;
+    text-decoration: underline var(--link-color-hover);
 }
 section.block-scroll {
-        overflow-y: scroll;
+    overflow-y: scroll;
     height: 90vh;
 }
 article.post {
@@ -104,7 +110,7 @@ section.list_articles article:hover{
 
 }
 
-section.list_articles  div.title_and_date {
+section.list_articles  div.title_and_date, section.block-scroll div.title_and_date {
     display: flex;
     flex-direction: row;
     align-items: center;
