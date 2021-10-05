@@ -1,21 +1,28 @@
 {% load static %}
-    <head>
-        <title>Timogo's blog</title>
-        <link rel="stylesheet" href="{% static 'blog/style.css' %} ">
-    </head>
+<head>
+    <title>Timogo's blog</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %} ">
+</head>
 
 
 <body>
-        <header>
-            <h1><a class="go_home" href="/">Blog timogo</a></h1>
-            <nav>
-                <ul>
-                    <li><a>Go to administration (CRUD)</a></li>
-                    <li><a>Messagerie</a></li>
-                </ul>
-            </nav>
-        </header>
+<header>
+    <h1><a class="go_home" href="/">Blog timogo</a></h1>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li>User: {{ user.get_username }}</li>
+                <li><a>Go to administration (CRUD)</a></li>
+                <li><a>Messagerie</a></li>
+                <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</header>
 <main class="posts_list">
-            {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </main>
 </body>
