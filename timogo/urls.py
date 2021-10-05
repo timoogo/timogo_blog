@@ -23,6 +23,7 @@ from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/manage_articles', views.go_to_administration, name='go_to_administration'),
     path('', views.post_list_index, name ='post_list_index'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
 

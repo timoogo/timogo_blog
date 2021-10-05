@@ -15,3 +15,6 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post_detail})
 
 
+def go_to_administration(request):
+    post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'CRUD/index.html', {'posts':post_list})

@@ -1,10 +1,7 @@
 {% extends 'blog/base.html' %}
     {% block content %}
 <main class="posts_list">
-
 <section class="list_articles">
-{##}
-{#{% if listing.is_past_due %}#}
     {% for post in posts %}
 
     <article>
@@ -16,7 +13,7 @@
         {% if post.text|length > 200 %}
         <p>{{ post.text|slice:":200"|linebreaksbr }}...</p><span class="see_more"> Lire la suite</span>
             {% else %}
-           <p> {{ post.text }} </p>
+           <p> {{ post.text }} </p><span class="see_more"> Lire sur la page de l'article</span>
         {% endif %}
     </a>
 
@@ -26,5 +23,5 @@
 {#    <h2>ERROR, there is no posts before now</h2>#}
 {#{% endif %}#}
 </section>
-</main>
+        </main>
 {% endblock %}
