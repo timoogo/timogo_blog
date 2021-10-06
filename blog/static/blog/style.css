@@ -159,25 +159,13 @@ section.form_section form div.form_inputs input[type="submit"]:hover {
     color: #2768d2;
 }
 
-table, thead, tbody{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border: 1px solid var(--text-color);
-}
 table{
-        flex-direction: column;
-    height: 50vh;
-}
-thead tr, tbody tr{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
 
-thead tr td {
-        border: 1px solid var(--text-color);
+    table-layout: auto;
+    margin:5vh auto;
+    width: 80%;
 }
-tbody{
-    flex-direction: column;
+main.posts_list.crud {
+    margin: auto 5vw;
+    color: red;
 }

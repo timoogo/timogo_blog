@@ -17,13 +17,16 @@ from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+
 
 from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/manage_articles', views.go_to_administration, name='go_to_administration'),
+
+    path('accounts/manage_articles', login_required(views.go_to_administration), name='go_to_administration'),
     path('', views.post_list_index, name ='post_list_index'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
 
