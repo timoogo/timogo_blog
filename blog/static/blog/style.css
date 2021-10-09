@@ -169,6 +169,9 @@ main.posts_list.crud {
     margin: auto 5vw;
     color: red;
 }
+main.posts_list.crud article{
+    flex: 100%;
+}
 i{
     color: var(--text-color);
 }

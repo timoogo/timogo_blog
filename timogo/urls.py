@@ -29,6 +29,6 @@ urlpatterns = [
     path('accounts/manage_articles', login_required(views.go_to_administration), name='go_to_administration'),
     path('', views.post_list_index, name ='post_list_index'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
-
+    path('account/manage_articles/create_post', views.createPost,  name='create_post')
 
 ]
