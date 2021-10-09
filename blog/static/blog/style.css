@@ -10,6 +10,9 @@
     font-family: 'Lato', sans-serif;
     --transition-duration-el : 1s;
     --margin-x-list-article: 2rem;
+    --padding-link: 1rem;
+    --half-rem: 0.5rem;
+    --quarter-rem: 0.25rem;
 }
 *{
     margin: 0;
@@ -24,7 +27,7 @@ a{
     text-decoration: none;
 }
 
-a:hover {
+a:hover:not(.create_post) {
     color: var(--accent-color) !important;
 }
 body{
@@ -137,10 +140,10 @@ section.form_section form div.form_inputs  {
 }
 section.form_section form div.form_inputs input {
 width: 100%;
-    padding: .25rem 0;
-    margin: .25rem 0;
+    padding: var(--half-rem) 0;
+    margin: var(--half-rem) 0;
 }
-section.form_section form div.form_inputs input[type="submit"]{
+input[type="submit"]{
     all: unset;
     text-align: center;
     padding: .25rem;
@@ -153,18 +156,15 @@ section.form_section form div.form_inputs input[type="submit"]{
     transition: var(--transition-duration-el);
 
 }
-section.form_section form div.form_inputs input[type="submit"]:hover {
+.form_section input[type="submit"]{
+        width: 33%;
+}
+input[type="submit"]:hover {
     background-color: var(--accent-color) ;
     cursor: pointer; ;
     color: #2768d2;
 }
 
-table{
-
-    table-layout: auto;
-    margin:5vh auto;
-    width: 80%;
-}
 main.posts_list.crud {
     margin: auto 5vw;
     color: red;
@@ -173,5 +173,43 @@ main.posts_list.crud article{
     flex: 100%;
 }
 i{
+    color: var(--text-color);
+}
+.list_articles .create_post{
+    padding: var(--padding-link);
+    background-color: var(--link-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius-px);
+    transition: var(--transition-duration-el);
+
+}
+.list_articles .create_post:hover{
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+.form_section form {
+    flex: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.form_section form > select, input, textarea {
+    width: 100%;
+    padding: var(--half-rem);
+    margin: .25rem auto;
+    background-color: var(--web-wash-color);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: var(--border-radius-px);
+    box-shadow: unset;
+    border-style:solid;
+    border-width: 1px;
+    border-color: var(--accent-color);
+    transition: var(--transition-duration-el);
+}
+.form_section form > select:hover, input:hover,
+.form_section form > select:focus, input:focus{
+    background-color: var(--accent-color);
     color: var(--text-color);
 }

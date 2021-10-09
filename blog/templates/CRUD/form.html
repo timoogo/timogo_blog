@@ -1,9 +1,12 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block form %}
+    <section class="form_section">
+
     <form action="" method="POST">
     {% csrf_token %}
         {{ form }}
     <input type="submit" name="Submit" value="Submit"/>
     </form>
+    </section>
 {% endblock %}

@@ -4,16 +4,14 @@
 
 <h2>Bienvenue sur l'espace d'administration </h2>
    <section class="list_articles">
-<a class="create_post" href="{% url 'create_post' %}"> Poster</a>
     {% for post in posts %}
-
     <article>
     <a href="{% url 'post_detail' pk=post.pk %}">
         <div class="title_and_date">
             <h2>{{ post.title }}</h2>
             <time> {{ post.published_date }}</time>
             <div>
-                <a>
+                <a href="{% url 'post_detail' pk=post.id %}">
                    <i class="far fa-eye"></i>
                 </a>
                 <a>
@@ -26,12 +24,10 @@
         </div>
 
     </a>
-
     </article>
 {% endfor %}
-{#{% else %}#}
-{#    <h2>ERROR, there is no posts before now</h2>#}
-{#{% endif %}#}
+<a class="create_post" href="{% url 'create_post' %}"> Poster</a>
+
 </section>
     </main>
 {% endblock %}
