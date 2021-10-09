@@ -3,27 +3,28 @@
     <main class="posts_list crud">
 
 <h2>Bienvenue sur l'espace d'administration </h2>
-    <table>
-    <thead>
-    <tr>
-        <td>Titre</td>
-        <td>Date</td>
-        <td>actions</td>
-    </tr>
-    </thead>
-    <tbody>
-        {% for post in posts %}
-    <tr>
-        <td>
-          <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-        </td>
-        <td> {{ post.published_date }}</td>
-        <td>A</td>
-    </tr>
+   <section class="list_articles">
+    {% for post in posts %}
 
+    <article>
+    <a href="{% url 'post_detail' pk=post.pk %}">
+        <div class="title_and_date">
+            <h2>{{ post.title }}</h2>
+            <time> {{ post.published_date }}</time>
+            <div>
+                <a>
+                   <i class="far fa-eye"></i>
+                </a>
+            </div>
+        </div>
 
+    </a>
+
+    </article>
 {% endfor %}
-    </tbody>
-    </table>
+{#{% else %}#}
+{#    <h2>ERROR, there is no posts before now</h2>#}
+{#{% endif %}#}
+</section>
     </main>
 {% endblock %}

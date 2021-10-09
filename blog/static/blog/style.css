@@ -169,3 +169,6 @@ main.posts_list.crud {
     margin: auto 5vw;
     color: red;
 }
+i{
+    color: var(--text-color);
+}
