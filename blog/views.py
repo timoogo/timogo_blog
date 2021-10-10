@@ -2,9 +2,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django.utils import timezone
-from .models import Post
+from datetime import datetime
+from .models import Post, Comment
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.contrib.auth import login
 def post_list_index(request):
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -53,3 +54,24 @@ def deletePost(request, pk):
         return redirect('go_to_administration')
     context = {'item': post}
     return render(request, 'CRUD/delete.html', context)
+
+
+def add_comment(request, pk):
+    thePost = Post.objects.get(id=pk)
+
+    form = CommentForm(instance=thePost)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=thePost)
+        if form.is_valid():
+            name = request.user.username
+            body = form.cleaned_data['body']
+            c = Comment(post = thePost, name=name, body=body, commented_date=datetime.now())
+            c.save()
+            return redirect('/')
+        else:
+            print('form is invalid')
+    else:
+        form = CommentForm()
+    context = {'form': form}
+    return render(request, 'blog/add_comment.html', context)

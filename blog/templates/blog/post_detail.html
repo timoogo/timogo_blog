@@ -12,6 +12,25 @@
         {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
-    <a href="{% url 'post_list_index' %}" class="go_home">Revenir à l'accueil </a>
+
+       <section class="comments">
+            <h2>Commentaires...</h2>
+            {% if not post.comments.all %}
+                <p>Pas encore de commentaires</p>
+           {% else %}
+                {% for comment in post.comments.all %}
+                <div class="comment">
+                    <h3>{{ comment.name }} - le {{ comment.commented_date }}</h3>
+                    <p>{{ comment.body }}</p>
+                    <hr/>
+                </div>
+                {% endfor %}
+
+           {% endif %}
+    <a href="{% url 'add-comment' post.id %}" >Ajouter un commentaire</a>
+        </section>
+        <a href="{% url 'post_list_index' %}" class="go_home">Revenir à l'accueil </a>
+
     </section>
+
 {% endblock %}

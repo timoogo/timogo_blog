@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block title %} Ajouter un commentaire {% endblock %}
+{% block comment %}
+    <section class="form_section">
+<h2>Ajouter le commentaire</h2>
+    <form method="POST">
+    {% csrf_token %}
+        {{ form }}
+    <input type="submit" name="Submit" value="Ajouter"/>
+    </form>
+    </section>
+{% endblock %}

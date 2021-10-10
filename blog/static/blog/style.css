@@ -250,3 +250,23 @@ section.delete .choices {
     width: fit-content;
 
 }
+.comments{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5vh;
+}
+.comments > .comment {
+    height: max-content;
+    margin: 1.5vh 0;
+}
+hr{
+    width: 100%;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+}
+h3{
+    font-size: 1.1rem;
+}
