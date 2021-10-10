@@ -3,31 +3,34 @@
 {% block content %}
 
     <section class="block-scroll">
-    <article class="post">
-        {% if post.published_date %}
-     <div class="title_and_date">
-            <h2>{{ post.title }}</h2>
-            <time> {{ post.published_date }}</time>
-        </div>
-        {% endif %}
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+        <article class="post">
+            {% if post.published_date %}
+                <div class="title_and_date">
+                    <h2>{{ post.title }}</h2>
+                    <time> {{ post.published_date }}</time>
+                </div>
+            {% endif %}
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
 
-       <section class="comments">
+        <section class="comments">
             <h2>Commentaires...</h2>
             {% if not post.comments.all %}
                 <p>Pas encore de commentaires</p>
-           {% else %}
+            {% else %}
                 {% for comment in post.comments.all %}
-                <div class="comment">
-                    <h3>{{ comment.name }} - le {{ comment.commented_date }}</h3>
-                    <p>{{ comment.body }}</p>
-                    <hr/>
-                </div>
+                    <div class="comment">
+                        <h3>{{ comment.name }} - le {{ comment.commented_date }}</h3>
+                        <p>{{ comment.body }}</p>
+                        <p><a href="{% url 'delete-comment' post.id %}"> Supprimer </a></p>
+
+                        <hr/>
+                    </div>
                 {% endfor %}
 
-           {% endif %}
-    <a href="{% url 'add-comment' post.id %}" >Ajouter un commentaire</a>
+            {% endif %}
+
+                <p><a href="{% url 'add-comment' post.id %}"> Commenter </a></p>
         </section>
         <a href="{% url 'post_list_index' %}" class="go_home">Revenir à l'accueil </a>
 

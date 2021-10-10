@@ -20,5 +20,6 @@ urlpatterns = [
     path('account/manage_articles/delete_post/<str:pk>', views.deletePost, name='delete_post'),
 
     path('post/<str:pk>/add_comment', views.add_comment, name='add-comment'),
+    path('post/<str:pk>/delete_comment', views.delete_comment, name='delete-comment'),
 
 ]
