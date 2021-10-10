@@ -31,5 +31,6 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('account/manage_articles/create_post', views.createPost,  name='create_post'),
     path('account/manage_articles/update_post/<str:pk>', views.updatePost, name='update_post'),
+    path('account/manage_articles/delete_post/<str:pk>', views.deletePost, name='delete_post'),
 
 ]

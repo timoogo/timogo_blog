@@ -28,7 +28,7 @@ def createPost(request):
         if form.is_valid():
             form.save()
             print("Article is posted")
-            return redirect('/')
+            return redirect('go_to_administration')
     context = {'form': form}
     return render(request, 'CRUD/form.html', context)
 
@@ -41,6 +41,15 @@ def updatePost(request, pk):
         if form.is_valid():
             form.save()
             print("Article is posted")
-            return redirect('/')
+            return redirect('go_to_administration')
     context = {'form': form}
     return render(request, 'CRUD/form.html', context)
+
+
+def deletePost(request, pk):
+    post = Post.objects.get(id=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('go_to_administration')
+    context = {'item': post}
+    return render(request, 'CRUD/delete.html', context)

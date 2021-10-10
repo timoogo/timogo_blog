@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block delete %}
+    <section class="delete">
+        <h2> Veux-tu vraiment supprimer l'article "{{ item }}", écrit par {{ item.author }} ?</h2>
+        <form action="{% url 'delete_post' item.id %}" method="POST">
+            {% csrf_token %}
+            <div class="choices">
+                <a href="{% url 'go_to_administration' %}">Non</a>
+            <input type="submit" name="Confirm" value="Supprimer"/>
+            </div>
+        </form>
+    </section>
+{% endblock %}

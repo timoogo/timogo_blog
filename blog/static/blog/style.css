@@ -13,6 +13,8 @@
     --padding-link: 1rem;
     --half-rem: 0.5rem;
     --quarter-rem: 0.25rem;
+    --debug: 1px solid red;
+
 }
 *{
     margin: 0;
@@ -212,4 +214,28 @@ i{
 .form_section form > select:focus, input:focus{
     background-color: var(--accent-color);
     color: var(--text-color);
+}
+
+section.delete {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+section.delete a {
+    color: var(--accent-color);
+}
+section.delete .choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 15vw;
+    margin-top: 5vh;
+}
+.choices > input {
+    width: fit-content;
+    border: var(--debug);
+
 }

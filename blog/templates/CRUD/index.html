@@ -14,7 +14,7 @@
                 <a href="{% url 'post_detail' pk=post.id %}">
                    <i class="far fa-eye"></i>
                 </a>
-                <a>
+                <a href="{% url 'delete_post' pk=post.id %}">
                    <i class="fas fa-trash"></i>
                 </a>
                  <a href="{% url 'update_post' pk=post.id %}">
