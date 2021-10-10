@@ -17,7 +17,7 @@
                 <a>
                    <i class="fas fa-trash"></i>
                 </a>
-                 <a>
+                 <a href="{% url 'update_post' pk=post.id %}">
                    <i class="fas fa-pencil-alt"></i>
                 </a>
             </div>
@@ -26,7 +26,7 @@
     </a>
     </article>
 {% endfor %}
-<a class="create_post" href="{% url 'create_post' %}"> Poster</a>
+<a class="create_post" href="{% url 'create_post' %}"> Poster un article</a>
 
 </section>
     </main>

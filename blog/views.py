@@ -33,8 +33,14 @@ def createPost(request):
     return render(request, 'CRUD/form.html', context)
 
 
-
-def delete(request, id):
-    obj = Post.objects.get(pk=id)
-    obj.delete()
-    return HttpResponseRedirect('accounts/manage_articles')
+def updatePost(request, pk):
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            print("Article is posted")
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'CRUD/form.html', context)
