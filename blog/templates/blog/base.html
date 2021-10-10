@@ -15,7 +15,7 @@
             {% if user.is_authenticated %}
                 <li>User: {{ user.get_username }}</li>
                 <li><a href="{% url 'go_to_administration' %}">Go to administration (CRUD)</a></li>
-                <li><a>Messagerie</a></li>
+                <li><a href="{% url 'chat_home' %}">Messagerie</a></li>
                 <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>

@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+    <link rel="stylesheet" href="{% static 'chat/style.css' %} ">
+</head>
+<body>
+    What chat room would you like to enter?<br>
+    <input id="room-number-input" type="number" step="1" size="100"><br>
+    <input id="room-number-submit" type="button" value="Enter">
+    <a href="{% url 'post_list_index' %}">Retourner au site principal</a>
+    <script>
+        document.querySelector('#room-number-input').focus();
+        document.querySelector('#room-number-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-number-submit').click();
+            }
+        };
+
+        document.querySelector('#room-number-submit').onclick = function(e) {
+            var room_number = document.querySelector('#room-number-input').value;
+            window.location.pathnumber = '/chat/room/' + room_number + '/';
+        };
+    </script>
+</body>
+</html>

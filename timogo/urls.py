@@ -21,5 +21,5 @@ urlpatterns = [
 
     path('post/<str:pk>/add_comment', views.add_comment, name='add-comment'),
     path('post/<str:pk>/delete_comment', views.delete_comment, name='delete-comment'),
-
+    path('chat/', include('chat.urls')),
 ]

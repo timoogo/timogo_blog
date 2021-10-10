@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap');
+:root{
+    --web-wash-color: #18191A;
+    --secondary:  #3a3b3c;
+    --text-color :	#e4e6eb;
+    --link-color: #2768d2;
+    --accent-color: orange;
+    --link-color-hover: #7294c5;
+    --border-radius-px : 12px;
+    --font-family: 'Lato', sans-serif;
+    --transition-duration-el : 1s;
+    --margin-x-list-article: 2rem;
+    --padding-link: 1rem;
+    --half-rem: 0.5rem;
+    --quarter-rem: 0.25rem;
+    --debug: 1px solid red;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style:none;
+    font-family: var(--font-family);
+}
+a{
+    color: var(--link-color);
+    cursor: pointer;
+    transition: color var(--transition-duration-el);
+    text-decoration: none;
+}
+
+a:hover:not(.create_post) {
+    color: var(--accent-color) !important;
+}
+body{
+    background: var(--web-wash-color);
+    color: var(--text-color);
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: max-content;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-content: center;
+    flex-basis: 50%;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+header nav ul li {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+a.go_home{
+    margin: 1rem auto;
+    display: block;
+    width: max-content;
+}
+section.list_articles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto var(--margin-x-list-article);
+
+
+}
+article a{
+    color: var(--text-color);
+}
+article:hover a {
+    color: var(--accent-color)  !important;
+}
+section.list_articles article{
+    flex: 40%;
+    padding: 6px;
+    margin: 5px;
+    background: var(--secondary);
+    border-radius: var(--border-radius-px);
+    transition: var(--transition-duration-el);
+    height: max-content;
+}
+span.see_more {
+     color: var(--link-color) !important;
+    text-decoration: underline var(--link-color);
+    transition: var(--transition-duration-el);
+}
+span.see_more:hover{
+    color: var(--link-color-hover) !important;
+    text-decoration: underline var(--link-color-hover);
+}
+section.block-scroll {
+    overflow-y: scroll;
+    height: 90vh;
+}
+article.post {
+    background: var(--secondary);
+    border-radius: var(--border-radius-px);
+    margin: 0 15%;
+    padding: 1%;
+}
+
+section.list_articles article:hover{
+    background: var(--secondary);
+    color: var(--link-color-hover);
+
+}
+
+section.list_articles  div.title_and_date, section.block-scroll div.title_and_date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+section.form_section{
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+    flex-direction: column;
+}
+section.form_section form div.form_inputs  {
+    width: 40vw;
+    padding: 6px;
+    margin: 5px;
+    background: var(--secondary);
+    border-radius: var(--border-radius-px);
+    height: 25vh;
+}
+section.form_section form div.form_inputs input {
+width: 100%;
+    padding: var(--half-rem) 0;
+    margin: var(--half-rem) 0;
+}
+input[type="submit"]{
+    all: unset;
+    text-align: center;
+    padding: .25rem;
+    width: 10%;
+    margin: auto;
+    display: block;
+    border: 1px solid var(--link-color-hover);
+    margin-top: 1%;
+    border-radius: var(--border-radius-px);
+    transition: var(--transition-duration-el);
+
+}
+.form_section input[type="submit"]{
+        width: 33%;
+}
+input[type="submit"]:hover {
+    background-color: var(--accent-color) ;
+    cursor: pointer; ;
+    color: #2768d2;
+}
+
+main.posts_list.crud {
+    margin: auto 5vw;
+    color: red;
+}
+main.posts_list.crud article{
+    flex: 100%;
+}
+i{
+    color: var(--text-color);
+}
+.list_articles .create_post{
+    padding: var(--padding-link);
+    background-color: var(--link-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius-px);
+    transition: var(--transition-duration-el);
+
+}
+.list_articles .create_post:hover{
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+.form_section form {
+    flex: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+}
+.form_section form > select, input, textarea {
+    width: 100%;
+    padding: var(--half-rem);
+    margin: .25rem auto;
+    background-color: var(--web-wash-color);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: var(--border-radius-px);
+    box-shadow: unset;
+    border-style:solid;
+    border-width: 1px;
+    border-color: var(--accent-color);
+    transition: var(--transition-duration-el);
+}
+
+.form_section form > select:hover, input:hover,
+.form_section form > select:focus, input:focus{
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+.form_section form > textarea{
+    max-height: 55vh;
+    transition: var(--transition-duration-el);
+
+}
+.form_section form > textarea:focus{
+    height: 55vh;
+    width: 55vw;
+}
+section.delete {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+section.delete a {
+    color: var(--accent-color);
+}
+
+section.delete .choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 15vw;
+    margin-top: 5vh;
+}
+.choices > input {
+    width: fit-content;
+
+}
+.comments{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5vh;
+}
+.comments > .comment {
+    height: max-content;
+    margin: 1.5vh 0;
+}
+hr{
+    width: 100%;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+}
+h3{
+    font-size: 1.1rem;
+}

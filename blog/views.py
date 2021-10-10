@@ -76,8 +76,15 @@ def add_comment(request, pk):
     context = {'form': form}
     return render(request, 'blog/add_comment.html', context)
 
+
 def delete_comment(request, pk):
     theComment = Comment.objects.filter(post=pk).last()
     post_id= theComment.post.id
     theComment.delete()
     return redirect('/')
+
+####### CHAT #########
+
+
+def chat_index(request):
+    return render(request, 'chat/index.html')

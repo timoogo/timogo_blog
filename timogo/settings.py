@@ -35,16 +35,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Mes ajouts
+    'blog.apps.BlogConfig',
+    'fontawesome_free',
+    'chat',
+    'channels',
+    #
     'django.contrib.admin',
     'django.contrib.auth',  # Core authentication framework and its default models.
     'django.contrib.contenttypes',  # Django content type system (allows permissions to be associated with models).
-
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #
-    'blog.apps.BlogConfig',
-    'fontawesome_free'
 
 ]
 
@@ -79,7 +81,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'timogo.wsgi.application'
+# Chat
+ASGI_APPLICATION = 'timogo.asgi.application'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'blog/static/'),
+    os.path.join(BASE_DIR, 'chat/static/'),
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
