@@ -33,4 +33,4 @@ Ouvrir un terminal dans le projet, à la racine de celui ci
 ```bash
 docker load -i <path-to-where-my-project-is-installed>/timogo/Desktop02fee89f17ad.tar
 ```
-
+Le chat est fonctionnel, mais pour voir qu'il y a bien deux utilisateurs distincts, pour le moment, il faut créer des users/superusers (j'ai uniquement intégré des users de django) et ouvrir une fenêtre de navigation privée pour bien voir que la conversation se fait bien entre deux users
